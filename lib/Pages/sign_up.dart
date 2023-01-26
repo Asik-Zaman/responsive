@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+import 'package:responsive_ui/Pages/all_product_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -295,7 +298,14 @@ class _HomePageState extends State<HomePage> {
                     width: 4.w,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Timer(Duration(seconds: 3), () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AllProduct()));
+                      });
+                    },
                     child: Text(
                       'Sign UP',
                       style: TextStyle(
