@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:responsive_ui/Pages/all_product_page.dart';
-import 'package:responsive_ui/Pages/sign_up.dart';
 
 void main() {
   runApp(MyApp());
