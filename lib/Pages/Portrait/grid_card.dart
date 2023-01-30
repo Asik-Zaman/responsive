@@ -5,54 +5,61 @@ class GridCard extends StatelessWidget {
   final List<Map<dynamic, dynamic>> gridList = [
     {
       'image': 'assets/images/grid_watch.png',
-      'price': '199.99',
+      'price': '\$199.99',
       'title': 'Tommy watch for..'
     },
     {
       'image': 'assets/images/grid_polo.png',
-      'price': '49.99',
+      'price': '\$49.99',
       'title': 'Sleeve T-Shirt'
     },
     {
       'image': 'assets/images/grid_shoe.png',
-      'price': '19.95',
+      'price': '\$19.95',
       'title': 'Man running shoe'
     },
     {
       'image': 'assets/images/grid_hoodie.png',
-      'price': '19.95',
+      'price': '\$19.95',
       'title': 'Redwolf sleeve Hoodie..'
     },
     {
       'image': 'assets/images/grid_blue.png',
-      'price': '199.99',
+      'price': '\$199.99',
       'title': 'Sleeve T-Shirt'
+    },
+    {
+      'image': 'assets/images/grid_watch.png',
+      'price': '\$199.99',
+      'title': 'Tommy watch for..'
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 588.h,
-      width: double.infinity,
-      child: GridView.builder(
-        padding: EdgeInsets.zero,
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisExtent: 200,
-            crossAxisCount: 2,
-            crossAxisSpacing: 12.w,
-            mainAxisSpacing: 12.h),
-        itemCount: gridList.length,
-        itemBuilder: ((context, index) {
-          return Container(
-            decoration: BoxDecoration(
-                boxShadow: [], borderRadius: BorderRadius.circular(8.r)),
-            child: LayoutBuilder(
-              builder: (ctx, constrans) {
-                return Column(
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 16.w),
+      child: Container(
+        height: 588.h,
+        width: double.infinity,
+        child: GridView.builder(
+          padding: EdgeInsets.zero,
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: 200.h,
+              crossAxisCount: 2,
+              crossAxisSpacing: 12.w,
+              mainAxisSpacing: 12.h),
+          itemCount: gridList.length,
+          itemBuilder: ((context, index) {
+            return Container(
+                height: 188.h,
+                width: 158.w,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(8.r)),
+                child: Column(
                   children: [
                     Container(
                       decoration: BoxDecoration(
@@ -60,8 +67,8 @@ class GridCard extends StatelessWidget {
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(8.r),
                               topRight: Radius.circular(8.r))),
-                      height: constrans.maxHeight * .6,
-                      width: constrans.maxWidth,
+                      height: 112.h,
+                      width: 158.w,
                       child: Column(
                         children: [
                           Align(
@@ -71,67 +78,126 @@ class GridCard extends StatelessWidget {
                               child: Container(
                                 child: Icon(
                                   Icons.favorite_border,
-                                  size: 20.sp,
+                                  size: 15.sp,
                                   color: Colors.grey,
                                 ),
                               ),
                             ),
                           ),
-                          Positioned(
-                            left: 36.w,
-                            top: 16.h,
-                            bottom: 16.h,
-                            right: 42.w,
-                            child: SizedBox(
-                              height: 80.h,
-                              width: 80.w,
-                              child: Image.asset(
-                                gridList[index]['image'],
-                                fit: BoxFit.cover,
-                              ),
+                          SizedBox(
+                            height: 80.h,
+                            width: 80.w,
+                            child: Image.asset(
+                              gridList[index]['image'],
+                              fit: BoxFit.contain,
                             ),
                           )
                         ],
                       ),
                     ),
                     Container(
+                      height: 76.h,
+                      width: 158.w,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 233, 224, 224),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(255, 249, 247, 247),
+                              offset: Offset(0, 10),
+                              blurRadius: 10,
+                            )
+                          ],
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(8.r),
                               bottomRight: Radius.circular(8.r))),
-                      height: constrans.maxHeight * .4,
-                      width: constrans.maxWidth,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.w, vertical: 12.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Watch for men..'),
-                            Row(
-                              children: [Icon(Icons.star), Text('425(253)')],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 12.h, left: 12.w, right: 12.w),
+                            child: Container(
+                              height: 16.h,
+                              width: 134.w,
+                              child: FittedBox(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  gridList[index]['title'],
+                                  style: TextStyle(
+                                      color: Color(0xff264653),
+                                      fontSize: 12.sp,
+                                      fontFamily: 'Sora',
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
                             ),
-                            Row(
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 12.w),
+                            child: Container(
+                              height: 10.h,
+                              width: 134.w,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    size: 8.sp,
+                                    color: Color(0xffF4A100),
+                                  ),
+                                  Text(
+                                    ' 425(253)',
+                                    style: TextStyle(
+                                        color: Color(0xff6C6C6C),
+                                        fontSize: 8.sp,
+                                        fontFamily: 'Sora',
+                                        fontWeight: FontWeight.w400),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 4.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 12.w, right: 12.w),
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text('\$${220}'),
-                                Icon(
-                                  Icons.shopping_cart,
-                                  size: 15,
+                                Text(
+                                  gridList[index]['price'],
+                                  style: TextStyle(
+                                      color: Color(0xff2A9D8F),
+                                      fontSize: 12.sp,
+                                      fontFamily: 'Sora',
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Container(
+                                  height: 16.h,
+                                  width: 16.w,
+                                  child: Center(
+                                      child: Icon(
+                                    Icons.shopping_cart,
+                                    color: Colors.white,
+                                    size: 8.sp,
+                                  )),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xff2A9D8F),
+                                      borderRadius: BorderRadius.circular(100)),
                                 )
                               ],
-                            )
-                          ],
-                        ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ],
-                );
-              },
-            ),
-          );
-        }),
+                ));
+          }),
+        ),
       ),
     );
   }

@@ -8,13 +8,15 @@ class BannerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 12.w),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.r)),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                'assets/images/banner.png',
+              ),
+              fit: BoxFit.cover),
+          borderRadius: BorderRadius.circular(8.r)),
       height: 100.h,
-      width: 230.w,
-      child: Image(
-        image: AssetImage('assets/images/banner.png'),
-        fit: BoxFit.cover,
-      ),
+      width: 234.w,
     );
   }
 }
